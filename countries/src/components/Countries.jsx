@@ -1,43 +1,61 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
-
+import React, { useState } from 'react';
+import data from '../data';
 
 const Countries = () => {
-    const [countries, setCountires] = useState([])
+    const [countries] = useState(data);
 
-    useEffect(() => {
-        fetch("https://api.sampleapis.com/countries/countries/")
-        .then((res) => {
-            if(res.ok) {
-                return res.json()
-            } else {
-                throw new Error("Failed to fetch")
-            }
-        })
-        .then((data) => {
-            const sortedCountries = data.sort((a, b) => 
-            a.name.localeCompare(b.name)
-        );
-           setCountires(sortedCountries)
-        })
-        .catch((error) => {
-            console.error("Error fetching data:", error);
-        })
-    }, [])
+    const sortedCountries = countries.sort((a, b) =>
+        a.name.localeCompare(b.name)
+    );
 
-  return (
-    <div>
-        {countries.length > 0 ? (
-                countries.map((country, index) => (
-                    <div key={index}>
-                        <h4>{country.name}</h4>
+    return (
+        <div>
+            <h1>Countries</h1>
+            {sortedCountries.length > 0 ? (
+                sortedCountries.map((country) => (
+                    <div key={country.id}>
+                        <button 
+                            type="button" 
+                            className="btn btn-primary" 
+                            data-bs-toggle="modal" 
+                            data-bs-target={`#id${country.id}`}
+                        >
+                            {country.name}
+                        </button>
+                        <div>
+                            <div 
+                                className="modal fade" 
+                                id={`id${country.id}`} 
+                                data-bs-backdrop="static" 
+                                data-bs-keyboard="false" 
+                                tabIndex="-1" 
+                                aria-labelledby="staticBackdropLabel" 
+                                aria-hidden="true"
+                            >
+                                <div className="modal-dialog">
+                                    <div className="modal-content">
+                                        <div className="modal-header">
+                                            <h1 className="modal-title fs-5" id="staticBackdropLabel">{country.name}</h1>
+                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div className="modal-body">
+                                        <h1>Population: {country.population ? country.population.toLocaleString() : 'N/A'}</h1>
+                                        </div>
+                                        <div className="modal-footer">
+                                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 ))
             ) : (
                 <p>No countries found.</p>
             )}
-    </div>
-  )
+        </div>
+    );
 }
 
-export default Countries
+export default Countries;
+
