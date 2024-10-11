@@ -4,22 +4,30 @@ import Header from './Header'
 
 const Countries = () => {
     const [countries] = useState(data);
+    const [searchTerm, setSearchTerm] = useState('');
 
-    const sortedCountries = countries.sort((a, b) =>
-        a.name.localeCompare(b.name)
-    );
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value)
+    }
+
+    const filteredCountries = countries
+    .filter(country =>
+        country.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => a.name.localeCompare(b.name))
+
 
     return (
         <div>
-            <Header/>
+            <Header searchTerm={searchTerm} handleSearchChange={handleSearchChange} />
             <div className='container'>
             <div className='row'>
-            {sortedCountries.length > 0 ? (
-                sortedCountries.map((country) => (
+            {filteredCountries.length > 0 ? (
+                filteredCountries.map((country) => (
                     <div className="col-md-4 p-1" key={country.id}>
                         <button 
                             type="button" 
-                            className="country btn btn-secondary" 
+                            className="country btn btn-light" 
                             data-bs-toggle="modal" 
                             data-bs-target={`#id${country.id}`}
                         >
@@ -48,7 +56,7 @@ const Countries = () => {
                                         <img className='ortho' src={country.media.orthographic}/>
                                         <h4>Currency: {country.currency}</h4>
                                         <h4>Phone Code: {country.phone}</h4>
-                                        <h4>Emblem: <img className='ortho' src={country.media.emblem}/></h4>
+                                        <h4>National Emblem: <img className='ortho' src={country.media.emblem}/></h4>
                                         </div>
                                         <div className="modal-footer">
                                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -60,7 +68,7 @@ const Countries = () => {
                     </div>
                 ))
             ) : (
-                <p>No countries found.</p>
+                <h3 className='text-center'>No countries found.</h3>
             )}
             </div>
         </div>

@@ -1042,7 +1042,7 @@ const countries = [
     "population": 8084991,
     "media": {
     "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Flag_of_Papua_New_Guinea.svg/1280px-Flag_of_Papua_New_Guinea.svg.png",
-    "emblem": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/National_Emblem_of_Papua_New_Guinea.svg/1280px-National_Emblem_of_Papua_New_Guinea.svg.png",
+    "emblem": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/National_emblem_of_Papua_New_Guinea.svg/260px-National_emblem_of_Papua_New_Guinea.svg.png",
     "orthographic": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Papua_New_Guinea_%28orthographic_projection%29.svg/1280px-Papua_New_Guinea_(orthographic_projection).svg.png"
     },
     "id": 75
@@ -1057,7 +1057,7 @@ const countries = [
     "media": {
     "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/1280px-Flag_of_Peru.svg.png",
     "emblem": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Escudo_nacional_del_Per%C3%BA.svg/1280px-Escudo_nacional_del_Per%C3%BA.svg.png",
-    "orthographic": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/PER_orthographic.svg/251280px-PER_orthographic.svg.png"
+    "orthographic": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/PER_orthographic.svg/1920px-PER_orthographic.svg.png"
     },
     "id": 76
     },
@@ -2033,6 +2033,7 @@ const countries = [
     "currency": "EUR",
     "name": "Kosovo",
     "phone": "383",
+    "population": 1586659,
     "media": {
     "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Flag_of_Kosovo.svg/1280px-Flag_of_Kosovo.svg.png",
     "emblem": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Emblem_of_the_Republic_of_Kosovo.svg/1920px-Emblem_of_the_Republic_of_Kosovo.svg.png",
