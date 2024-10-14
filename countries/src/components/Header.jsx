@@ -1,11 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = ({searchTerm, handleSearchChange}) => {
   return (
     <div class="fixed-top">
-      <div className='head d-flex'>
-    <h1>Country Finder</h1><i class="bi bi-search"></i>
-    </div>
+     <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <Link to={'/'} class="navbar-brand">Country Finder<i class="bi bi-search"></i></Link>
+  </div>
+</nav>
+
     <input
       type="text"
       placeholder="Search for a country..."
